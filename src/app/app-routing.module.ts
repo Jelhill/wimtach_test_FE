@@ -47,8 +47,14 @@ import { StudentsComponent } from './students/students.component';
                     { 
                         path: 'students', 
                         loadChildren: () => import('./students/students.module').then((m) => m.StudentsModule),
-                        // component: StudentsComponent, 
                         data: { permission: 'Pages.Students' }, 
+                        canActivate: [AppRouteGuard] 
+                    },                  
+                    { 
+                        path: 'colleges', 
+                        loadChildren: () => import('./colleges/colleges.module').then((m) => m.CollegesModule
+                        ),
+                        data: { permission: 'Pages.Colleges' }, 
                         canActivate: [AppRouteGuard] 
                     },
 

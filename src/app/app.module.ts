@@ -50,7 +50,7 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
         TabsModule,
         ServiceProxyModule,
         NgxPaginationModule,
-        SharedModule
+        SharedModule,
     ],
     providers: []
 })

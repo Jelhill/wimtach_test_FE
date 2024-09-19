@@ -62,6 +62,9 @@ export class StudentsComponent extends PagedListingComponentBase<StudentDto> {
       .subscribe((result: StudentDtoPagedResultDto) => {
         this.students = result.items;
         this.showPaging(result, pageNumber);
+        console.log("RESULTS", result.items)
+        console.log("SHOW PAGING", this.students)
+
       });
   }
 
@@ -124,4 +127,5 @@ export class StudentsComponent extends PagedListingComponentBase<StudentDto> {
     this.isActive = undefined;
     this.getDataPage(1);
   }
+
 }
