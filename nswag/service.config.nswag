@@ -5,7 +5,8 @@
     "fromDocument": {
       "url": "https://localhost:44311/swagger/v1/swagger.json",
       "output": null,
-      "newLineBehavior": "Auto"
+      "newLineBehavior": "Auto",
+      }
     }
   },
   "codeGenerators": {
