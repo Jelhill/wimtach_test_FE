@@ -55,7 +55,6 @@ export abstract class PagedListingComponentBase<TEntityDto> extends AppComponent
         req.maxResultCount = this.pageSize;
         req.skipCount = (page - 1) * this.pageSize;
 
-        console.log("request", req)
         this.isTableLoading = true;
         this.list(req, page, () => {
             this.isTableLoading = false;

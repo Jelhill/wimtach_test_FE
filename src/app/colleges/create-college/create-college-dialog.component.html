@@ -1,0 +1,158 @@
+<form
+  class="form-horizontal"
+  autocomplete="off"
+  #createCollegeForm="ngForm"
+  (ngSubmit)="save()"
+>
+  <abp-modal-header
+    [title]="'CreateNewCollege' | localize"
+    (onCloseClick)="bsModalRef.hide()"
+  ></abp-modal-header>
+
+  <div class="modal-body">
+
+    <!-- College Name Field -->
+    <div class="form-group row required">
+      <label class="col-md-3 col-form-label" for="CollegeName">
+        {{ "Name" | localize }}
+      </label>
+      <div class="col-md-9">
+        <input
+          type="text"
+          class="form-control"
+          name="CollegeName"
+          id="CollegeName"
+          minlength="2"
+          maxlength="64"
+          required
+          [(ngModel)]="college.name"
+          #collegeNameModel="ngModel"
+          #collegeNameEl
+        />
+        <abp-validation-summary
+          [control]="collegeNameModel"
+          [controlEl]="collegeNameEl"
+        ></abp-validation-summary>
+      </div>
+    </div>
+
+    <!-- College Address Field -->
+    <div class="form-group row required">
+      <label class="col-md-3 col-form-label" for="address">
+        {{ "Address" | localize }}
+      </label>
+      <div class="col-md-9">
+        <input
+          type="text"
+          class="form-control"
+          name="address"
+          id="address"
+          maxlength="128"
+          required
+          [(ngModel)]="college.address"
+          #addressModel="ngModel"
+          #addressEl
+        />
+        <abp-validation-summary
+          [control]="addressModel"
+          [controlEl]="addressEl"
+        ></abp-validation-summary>
+      </div>
+    </div>
+
+    <!-- College Email Field -->
+    <div class="form-group row required">
+      <label class="col-md-3 col-form-label" for="email">
+        {{ "Email" | localize }}
+      </label>
+      <div class="col-md-9">
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          id="email"
+          maxlength="256"
+          required
+          [(ngModel)]="college.email"
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+          #emailModel="ngModel"
+          #emailEl
+        />
+        <abp-validation-summary
+          [control]="emailModel"
+          [controlEl]="emailEl"
+        ></abp-validation-summary>
+      </div>
+    </div>
+
+    <!-- GPS Coordinates Fields -->
+    <div class="form-group row required">
+      <label class="col-md-3 col-form-label" for="gpsLatitude">
+        {{ "GPSLatitude" | localize }}
+      </label>
+      <div class="col-md-9">
+        <input
+          type="number"
+          class="form-control"
+          name="gpsLatitude"
+          id="gpsLatitude"
+          required
+          [(ngModel)]="college.gpsLatitude"
+          #gpsLatitudeModel="ngModel"
+          #gpsLatitudeEl
+        />
+        <abp-validation-summary
+          [control]="gpsLatitudeModel"
+          [controlEl]="gpsLatitudeEl"
+        ></abp-validation-summary>
+      </div>
+    </div>
+
+    <div class="form-group row required">
+      <label class="col-md-3 col-form-label" for="gpsLongitude">
+        {{ "GPSLongitude" | localize }}
+      </label>
+      <div class="col-md-9">
+        <input
+          type="number"
+          class="form-control"
+          name="gpsLongitude"
+          id="gpsLongitude"
+          required
+          [(ngModel)]="college.gpsLongitude"
+          #gpsLongitudeModel="ngModel"
+          #gpsLongitudeEl
+        />
+        <abp-validation-summary
+          [control]="gpsLongitudeModel"
+          [controlEl]="gpsLongitudeEl"
+        ></abp-validation-summary>
+      </div>
+    </div>
+
+    <!-- IsActive Checkbox -->
+    <div class="form-group row">
+      <label class="col-md-3 col-form-label">
+        {{ "IsActive" | localize }}
+      </label>
+      <div class="col-md-9">
+        <div class="custom-control custom-checkbox">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            name="isActive"
+            id="isActive"
+            [(ngModel)]="college.isActive"
+          />
+          <label class="custom-control-label mt-2" for="isActive"></label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <abp-modal-footer
+    [cancelDisabled]="saving"
+    [saveDisabled]="!createCollegeForm.form.valid || saving"
+    (onCancelClick)="bsModalRef.hide()"
+  ></abp-modal-footer>
+</form>

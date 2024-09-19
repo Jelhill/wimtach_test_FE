@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppRouteGuard } from '@shared/auth/auth-route-guard';
 import { AppComponent } from './app.component';
-import { StudentsComponent } from './students/students.component';
 
 @NgModule({
     imports: [
